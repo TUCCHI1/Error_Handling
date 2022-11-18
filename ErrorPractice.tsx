@@ -31,3 +31,13 @@ class Failure<E extends Error> {
     return true;
   }
 }
+
+function foo(): Result<string, ErrorX | ErrorY> {
+  // 正常系
+  // Successを返す
+  return new Success("success");
+
+  // 異常系
+  // throwは使わずにFailureを返す
+  return new Failure(new ErrorX("x"));
+}
